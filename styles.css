@@ -1,0 +1,205 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('amortiito.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .carta {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h3 {
+            color: #C21912;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        button {
+            background: #C21912;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(194, 25, 18, 0.4);
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #a01510;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(194, 25, 18, 0.6);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #mensaje {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.8s ease, max-height 0.8s ease;
+            margin-top: 20px;
+        }
+
+        #mensaje.mostrar {
+            opacity: 1;
+            max-height: 300px;
+        }
+
+        #mensaje p {
+            font-size: 1.3rem;
+            color: #696161;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        #btnAbrirCompleta {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #corazones {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .corazon {
+            position: absolute;
+            font-size: 30px;
+            animation: caer 4s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes caer {
+            0% {
+                top: -10%;
+                opacity: 1;
+            }
+
+            100% {
+                top: 110%;
+                opacity: 0;
+            }
+        }
+
+        #cartaCompleta {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: url(amortiito.jpeg);
+            overflow-y: auto;
+        }
+
+        #canvasMargaritas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #contenidoCarta {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            min-height: calc(100vh - 100px);
+        }
+
+        #contenidoCarta h2 {
+            color: #C21912;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #contenidoCarta p {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #fffefe;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .carta {
+                padding: 30px 20px;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            #mensaje p {
+                font-size: 1.1rem;
+            }
+
+            #contenidoCarta {
+                padding: 20px;
+                margin: 30px auto;
+            }
+
+            #contenidoCarta h2 {
+                font-size: 2rem;
+            }
+
+            #contenidoCarta p {
+                font-size: 1.1rem;
+            }
+        }
